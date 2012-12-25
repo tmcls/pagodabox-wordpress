@@ -4,7 +4,7 @@ web1:
   document_root: wordpress/
   shared_writable_dirs: wordpress/wp-content/
   after_build:
-    - "cp -r pagoda/ wordpress/"
+    - "cp -r wp-default/ wordpress/"
     - "mv wordpress/wp-content/ wordpress/wp-content-original/"
     - "mkdir wordpress/wp-content/"
   before_deploy:
