@@ -5,7 +5,10 @@ web1:
     - wordpress/wp-content/
   after_build:
     - "mv pagoda/wp-config.php wordpress/wp-config.php"
+    - "mv pagoda/.htaccess wordpress/.htaccess"
+    - "rmdir pagoda/"
     - "mv -R wordpress/wp-content/ wordpress/wp-content-original/"
+    - "mkdir wp-content/"
   before_deploy:
     - "cp -R wordpress/wp-content-original/* wordpress/wp-content/"
   php_extensions:
@@ -17,5 +20,5 @@ web1:
     - mcrypt
     - zip
 db1:
-  name: wb-db
+  name: wp-db
   type: mysql
