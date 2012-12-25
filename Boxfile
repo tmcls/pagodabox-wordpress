@@ -6,7 +6,8 @@ web1:
   after_build:
     - "mv pagoda/.htaccess wordpress/.htaccess"
     - "mv pagoda/wp-config.php wordpress/wp-config.php"
-    - "cp -r wordpress/wp-content/* pagoda/wp-content/"
+    - "mv wordpress/wp-content/ pagoda/wp-content/"
+    - "mkdir wordpress/wp-content/"
   before_deploy:
     - "cp -r pagoda/wp-content/* wordpress/wp-content/"
   php_extensions:
