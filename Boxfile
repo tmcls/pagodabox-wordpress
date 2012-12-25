@@ -8,7 +8,7 @@ web1:
     - "mv wordpress/wp-content/ wordpress/wp-content-original/"
     - "mkdir wordpress/wp-content/"
   before_deploy:
-    - "cp -r pagoda/wp-content/ wordpress/wp-content/"
+    - "cp -r wordpress/wp-content-original/ wordpress/wp-content/"
   php_extensions:
     - mysql
     - gd
