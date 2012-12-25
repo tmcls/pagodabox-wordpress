@@ -7,7 +7,7 @@ web1:
     - "cp -rv wp-default/. wordpress/"
     - "cp -rv wordpress/wp-content/ wp-default/"
   before_deploy:
-    - "cp -rv wp-default/wp-content/. wordpress/wp-content/"
+    - "cp -rvu wp-default/wp-content/. wordpress/wp-content/"
   php_extensions:
     - mysql
     - gd
