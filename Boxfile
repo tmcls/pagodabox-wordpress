@@ -1,5 +1,5 @@
 web1: 
-  name: wp-web
+  name: wordpress-web1
   php_display_errors: "0"
   document_root: wordpress/
   shared_writable_dirs: wordpress/wp-content/
@@ -7,7 +7,7 @@ web1:
     - "cp -rv wp-default/. wordpress/"
     - "cp -rv wordpress/wp-content/ wp-default/"
   before_deploy:
-    - "cp -rvu wp-default/wp-content/. wordpress/wp-content/"
+    - "cp -rv wp-default/wp-content/. wordpress/wp-content/"
   php_extensions:
     - mysql
     - gd
@@ -19,5 +19,5 @@ web1:
     - curl
 
 db1:
-  name: wp-db
+  name: wordpress-db1
   type: mysql
