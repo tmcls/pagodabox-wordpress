@@ -4,10 +4,9 @@ web1:
   document_root: wordpress/
   shared_writable_dirs: wordpress/wp-content/
   after_build:
-    - "mv pagoda/.htaccess wordpress/.htaccess"
-    - "mv pagoda/wp-config.php wordpress/wp-config.php"
-    - "mkdir pagoda/wp-content/"
-    - "cp -r wordpress/wp-content/* pagoda/wp-content/"
+    - "cp -r pagoda/ wordpress/"
+    - "mv wordpress/wp-content/ wordpress/wp-content-original/"
+    - "mkdir wordpress/wp-content/"
   before_deploy:
     - "cp -r pagoda/wp-content/* wordpress/wp-content/"
   php_extensions:
@@ -18,6 +17,7 @@ web1:
     - iconv
     - mcrypt
     - zip
+    - curl
 
 db1:
   name: wp-db
