@@ -4,11 +4,11 @@ web1:
   document_root: wordpress/
   shared_writable_dirs: wordpress/wp-content/
   after_build:
-    - "cp -r wp-default/ wordpress/"
-    - "mv wordpress/wp-content/ wordpress/wp-content-original/"
+    - "cp -rv wp-default/ wordpress/"
+    - "mv -v wordpress/wp-content/ wordpress/wp-content-original/"
     - "mkdir wordpress/wp-content/"
   before_deploy:
-    - "cp -r wordpress/wp-content-original/ wordpress/wp-content/"
+    - "cp -rv wordpress/wp-content-original/ wordpress/wp-content/"
   php_extensions:
     - mysql
     - gd
