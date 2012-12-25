@@ -4,12 +4,10 @@ web1:
   document_root: wordpress/
   shared_writable_dirs: wordpress/wp-content/
   after_build:
-    - "mv pagoda/wp-config.php wordpress/wp-config.php"
-    - "mv pagoda/.htaccess wordpress/.htaccess"
-    - "mv wordpress/wp-content/ wordpress/wp-content-original/"
-    - "mkdir wordpress/wp-content"
+    - "cp -R pagoda/ wordpress/"
+    - "cp -R wordpress/wp-content/ pagoda/wp-content/"
   before_deploy:
-    - "cp -R wordpress/wp-content-original/* wordpress/wp-content/"
+    - "cp -R pagoda/wp-content/ wordpress/wp-content/"
   php_extensions:
     - mysql
     - gd
