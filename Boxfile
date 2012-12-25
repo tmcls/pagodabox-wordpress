@@ -1,14 +1,13 @@
 web1: 
   name: wp-web
-  document_root: /wordpress
-  shared_writable_dirs:
-    - wordpress/wp-content/
+  php_display_errors: "0"
+  document_root: wordpress/
+  shared_writable_dirs: wordpress/wp-content/
   after_build:
     - "mv pagoda/wp-config.php wordpress/wp-config.php"
     - "mv pagoda/.htaccess wordpress/.htaccess"
-    - "rmdir pagoda/"
-    - "mv -R wordpress/wp-content/ wordpress/wp-content-original/"
-    - "mkdir wp-content/"
+    - "mv wordpress/wp-content/ wordpress/wp-content-original/"
+    - "mkdir wordpress/wp-content"
   before_deploy:
     - "cp -R wordpress/wp-content-original/* wordpress/wp-content/"
   php_extensions:
@@ -19,6 +18,7 @@ web1:
     - iconv
     - mcrypt
     - zip
+
 db1:
   name: wp-db
   type: mysql
