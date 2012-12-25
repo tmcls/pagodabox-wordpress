@@ -5,9 +5,9 @@ web1:
     - wordpress/wp-content/
   after_build:
     - "mv pagoda/wp-config.php wordpress/wp-config.php"
-    - "mv -R wordpress/wp-content/ pagoda/wp-content/"
+    - "mv -R wordpress/wp-content/ wordpress/wp-content-original/"
   before_deploy:
-    - "cp -R pagoda/wp-content/* wordpress/wp-content/"
+    - "cp -R wordpress/wp-content-original/* wordpress/wp-content/"
   php_extensions:
     - mysql
     - gd
